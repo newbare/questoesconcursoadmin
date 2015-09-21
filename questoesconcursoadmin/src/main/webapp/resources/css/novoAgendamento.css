@@ -1,0 +1,96 @@
+body {
+	font-family: serif;
+	font-size: 14px;
+	background-image: url("/questoesconcursoadmin/resources/img/fundo.jpg");
+}
+
+.ui-widget,.ui-widget .ui-widget {
+	font-size: 11.3px !important;
+}
+
+#cabecalho {
+	
+}
+
+#geral {
+	width: 1100px;
+	margin: auto;
+}
+
+#conteudo {
+	margin-top: 25px;
+	padding: 2% 2% 2% 2%;
+	box-shadow: -1px 1px 10px #333333;
+	min-height: 530px;
+	overflow: visible;
+	background-color: #FFFFFF;
+}
+
+#rodape {
+	
+}
+
+a:link {text-decoration: none;color: #000099}
+a:active {text-decoration: none;}
+a:visited {text-decoration: none;color: #000099}
+a:hover {text-decoration: underline;color: #000099}
+
+.bordaBoxInfoPaciente {bbackground: ttransparent; width: 230px;height: 110px;text-align: center; font-size: 12.5px;}
+.bordaBoxInfoPaciente .b1, .bordaBoxInfoPaciente .b2, .bordaBoxInfoPaciente .b3, .bordaBoxInfoPaciente .b4, .bordaBoxInfoPaciente .b1b, .bordaBoxInfoPaciente .b2b, .bordaBoxInfoPaciente .b3b, .bordaBoxInfoPaciente .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBoxInfoPaciente .b1, .bordaBoxInfoPaciente .b2, .bordaBoxInfoPaciente .b3, .bordaBoxInfoPaciente .b1b, .bordaBoxInfoPaciente .b2b, .bordaBoxInfoPaciente .b3b {height:1px;}
+.bordaBoxInfoPaciente .b2, .bordaBoxInfoPaciente .b3, .bordaBoxInfoPaciente .b4 {background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBoxInfoPaciente .b1 {margin:0 5px; background:#999;}
+.bordaBoxInfoPaciente .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBoxInfoPaciente .b3 {margin:0 2px;}
+.bordaBoxInfoPaciente .b4 {height:2px; margin:0 1px;}
+.bordaBoxInfoPaciente .conteudo {padding:5px;display:block; background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+
+
+.bordaBoxAgendCons {bbackground: ttransparent; width: 180px;height: 110px;text-align: center; font-size: 12.5px;}
+.bordaBoxAgendCons .b1, .bordaBoxAgendCons .b2, .bordaBoxAgendCons .b3, .bordaBoxAgendCons .b4, .bordaBoxAgendCons .b1b, .bordaBoxAgendCons .b2b, .bordaBoxAgendCons .b3b, .bordaBoxAgendCons .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBoxAgendCons .b1, .bordaBoxAgendCons .b2, .bordaBoxAgendCons .b3, .bordaBoxAgendCons .b1b, .bordaBoxAgendCons .b2b, .bordaBoxAgendCons .b3b {height:1px;}
+.bordaBoxAgendCons .b2, .bordaBoxAgendCons .b3, .bordaBoxAgendCons .b4 {background:#01FF00; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBoxAgendCons .b1 {margin:0 5px; background:#999;}
+.bordaBoxAgendCons .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBoxAgendCons .b3 {margin:0 2px;}
+.bordaBoxAgendCons .b4 {height:2px; margin:0 1px;}
+.bordaBoxAgendCons .conteudo {padding:5px;display:block; background:#01FF00; border-left:1px solid #999; border-right:1px solid #999;}
+
+.bordaBoxDadosPac {bbackground: ttransparent; width: 118px;height: 100px;text-align: center; font-size: 12.5px;}
+.bordaBoxDadosPac .b1, .bordaBoxDadosPac .b2, .bordaBoxDadosPac .b3, .bordaBoxDadosPac .b4, .bordaBoxDadosPac .b1b, .bordaBoxDadosPac .b2b, .bordaBoxDadosPac .b3b, .bordaBoxDadosPac .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBoxDadosPac .b1, .bordaBoxDadosPac .b2, .bordaBoxDadosPac .b3, .bordaBoxDadosPac .b1b, .bordaBoxDadosPac .b2b, .bordaBoxDadosPac .b3b {height:1px;}
+.bordaBoxDadosPac .b2, .bordaBoxDadosPac .b3, .bordaBoxDadosPac .b4 {background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBoxDadosPac .b1 {margin:0 5px; background:#999;}
+.bordaBoxDadosPac .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBoxDadosPac .b3 {margin:0 2px;}
+.bordaBoxDadosPac .b4 {height:2px; margin:0 1px;}
+.bordaBoxDadosPac .conteudo {padding:5px;display:block; background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+
+.bordaBoxRelatAtend {bbackground: ttransparent; width: 118px;height: 105px;text-align: center; font-size: 12.5px;}
+.bordaBoxRelatAtend .b1, .bordaBoxRelatAtend .b2, .bordaBoxRelatAtend .b3, .bordaBoxRelatAtend .b4, .bordaBoxRelatAtend .b1b, .bordaBoxRelatAtend .b2b, .bordaBoxRelatAtend .b3b, .bordaBoxRelatAtend .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBoxRelatAtend .b1, .bordaBoxRelatAtend .b2, .bordaBoxRelatAtend .b3, .bordaBoxRelatAtend .b1b, .bordaBoxRelatAtend .b2b, .bordaBoxRelatAtend .b3b {height:1px;}
+.bordaBoxRelatAtend .b2, .bordaBoxRelatAtend .b3, .bordaBoxRelatAtend .b4 {background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBoxRelatAtend .b1 {margin:0 5px; background:#999;}
+.bordaBoxRelatAtend .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBoxRelatAtend .b3 {margin:0 2px;}
+.bordaBoxRelatAtend .b4 {height:2px; margin:0 1px;}
+.bordaBoxRelatAtend .conteudo {padding:5px;display:block; background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+
+.bordaBoxpag {bbackground: ttransparent; width: 118px;height: 105px;text-align: center; font-size: 12.5px;}
+.bordaBoxpag .b1, .bordaBoxpag .b2, .bordaBoxpag .b3, .bordaBoxpag .b4, .bordaBoxpag .b1b, .bordaBoxpag .b2b, .bordaBoxpag .b3b, .bordaBoxpag .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBoxpag .b1, .bordaBoxpag .b2, .bordaBoxpag .b3, .bordaBoxpag .b1b, .bordaBoxpag .b2b, .bordaBoxpag .b3b {height:1px;}
+.bordaBoxpag .b2, .bordaBoxpag .b3, .bordaBoxpag .b4 {background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBoxpag .b1 {margin:0 5px; background:#999;}
+.bordaBoxpag .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBoxpag .b3 {margin:0 2px;}
+.bordaBoxpag .b4 {height:2px; margin:0 1px;}
+.bordaBoxpag .conteudo {padding:5px;display:block; background:#F4FEEF; border-left:1px solid #999; border-right:1px solid #999;}
+
+
+
+
+
+
+
+
+

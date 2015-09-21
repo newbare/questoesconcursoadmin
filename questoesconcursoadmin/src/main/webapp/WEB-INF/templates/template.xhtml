@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	>
+<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> </meta>
+     	<h:outputStylesheet name="css/questoesconcursoadmin.css"></h:outputStylesheet>
+		<title><ui:insert name="title">Questões de concurso - Módulo Administrativo</ui:insert></title>
+		<h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+		<h:outputScript name="js/questoesconcursoadmin.js"></h:outputScript>
+</h:head>
+<h:body>
+	<div id="container">
+		<div id="content">
+			<div id="sair">
+				<h:outputLink value="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout" style="text-align: right; float: right;">
+					<h:outputText value="Sair" />
+				</h:outputLink>
+			</div>
+			<div id="cabecalho">
+				<h:form id="formCabecalho">
+					<a href="http://localhost:8080/questoesconcursoadmin/pages/home.jsf" title="Home">
+			   			<h:graphicImage url="/resources/img/bannerNQAdmin.png" style="width: 1020px;" />
+			   		</a>
+				</h:form>
+			</div>
+			<div id="menuTemplate">
+				<ui:include src="menuTemplate.xhtml"/>
+			</div>
+			
+			<div id="corpo">
+				<h:form id="formMessages">
+					<p:messages id="messages" showDetail="true" closable="true" />
+				</h:form>
+				<h:form id="formGrowl">
+					<p:growl id="growl" showDetail="true" escape="false" />
+				</h:form>
+				<ui:insert name="content" />
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

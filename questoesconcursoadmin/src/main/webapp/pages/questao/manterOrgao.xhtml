@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterOrgao">
+			<p:fieldset legend="Cadastrar Orgão" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ORGAO}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ABREVIACAO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{orgaoMB.entity.orgao}" maxlength="100" size="60" />
+							</td>
+							<td>
+								<h:inputText value="#{orgaoMB.entity.orgaoAbreviacao}" maxlength="10" size="20" />
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{orgaoMB.salvarOuAlterar}" value="#{defaultMSG.BTN_SALVAR}" update=":formGrowl:growl" />
+								<span />
+								<p:commandButton action="#{orgaoMB.voltar}" value="#{defaultMSG.BTN_VOLTAR}">
+									<f:ajax execute="@this" />
+								</p:commandButton>
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

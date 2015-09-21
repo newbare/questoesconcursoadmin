@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterQuestao">
+			<p:fieldset legend="#{defaultMSG.LBL_CADASTRAR_QUESTAO}" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_DISCIPLINA}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_MATERIA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu id="listaDisciplina" value="#{questaoMB.entity.categoria.disciplina}" converter="chaveConverteObjeto" 
+												valueChangeListener="#{questaoMB.onSelectDisciplina}" tabindex="0" style="width: 440px;">
+												<f:ajax event="change" execute="listaDisciplina" render=":formManterQuestao:listaMateria" />
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{questaoMB.listaDisciplinas}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{questaoMB.incluirDisciplina}">
+												<f:setPropertyActionListener value="manterQuestao" target="#{questaoMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu id="listaMateria" value="#{questaoMB.entity.categoria}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{questaoMB.listaCategorias}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{questaoMB.incluirCategoria}">
+												<f:setPropertyActionListener value="manterQuestao" target="#{questaoMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:outputLabel value="#{defaultMSG.LBL_ENUNCIADO_QUESTAO}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="vertical-align:bottom; text-align: right;">
+								<table>
+									<tr>
+										<td>
+											<p:inputTextarea rows="3" cols="155"  value="#{questaoMB.entity.textoDescritivo.texto}" counter="counterEnunciado" maxlength="4000"       
+    											counterTemplate="{0} caracteres restantes." autoResize="true"/>
+    										<br />
+    										<h:outputText id="counterEnunciado" />
+											<p:selectBooleanCheckbox value="#{questaoMB.removerQuebraLinhaEnunciado}" style="float:left; margin-top: 3px;" />
+											<h:outputText value=" #{defaultMSG.LBL_REMOVER_QUEBRA_LINHAS}" style="float:left; margin-top: 3px;" />
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:outputLabel value="#{defaultMSG.LBL_TIPO_QUESTAO}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:selectOneRadio id="tipoQuestao" value="#{questaoMB.entity.tipoQuestao}" immediate="true" valueChangeListener="#{questaoMB.onSelectTipoQuestao}">
+									<f:ajax event="change" execute="tipoQuestao" render=":formManterQuestao:panelGabarito" />
+									<f:selectItem itemLabel="#{defaultMSG.LBL_CERTO_ERRADO}" itemValue="#{questaoMB.tipoQuestaoCertoErrado}"  />
+									<f:selectItem itemLabel="#{defaultMSG.LBL_MULTIPLA_ESCOLHA}" itemValue="#{questaoMB.tipoQuestaoMultiplaEscolha}" />
+								</h:selectOneRadio>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="2">
+								<h:outputLabel value="#{defaultMSG.LBL_NUMERO_QUESTAO}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:inputText value="#{questaoMB.entity.numero}" onkeypress="return SomenteNumero(event)" maxlength="4"
+									style="width: 30px;" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:outputLabel value="#{defaultMSG.LBL_QUESTAO}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="vertical-align:bottom; text-align: right !important;">
+								<table>
+									<tr>
+										<td>
+											<p:inputTextarea rows="4" cols="155"  value="#{questaoMB.entity.questao}" counter="counterQuestao" maxlength="8000"       
+    											counterTemplate="{0} caracteres restantes." autoResize="true"/>
+    										<br />
+											<h:outputText id="counterQuestao" />
+											<p:selectBooleanCheckbox value="#{questaoMB.removerQuebraLinhaQuestao}" style="float:left; margin-top: 3px;" />
+											<h:outputText value=" #{defaultMSG.LBL_REMOVER_QUEBRA_LINHAS}" style="float:left; margin-top: 3px;" />
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:panelGroup id="panelGabarito">
+									<h:panelGroup id="panelGabaritoInternoCertoErrado" rendered="#{questaoMB.certoErrado}">
+										<table>
+											<tr>
+												<td>
+													<h:outputLabel value="#{defaultMSG.LBL_GABARITO}" />
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<h:panelGroup>
+														<h:selectOneRadio id="gabaritoCertoErrado" value="#{questaoMB.entity.alternativaGabarito.id}">
+															<f:ajax event="change" execute="tipoQuestao" />
+															<f:selectItem itemLabel="#{defaultMSG.LBL_CERTO}" itemValue="#{questaoMB.certoCodigo}"  />
+															<f:selectItem itemLabel="#{defaultMSG.LBL_ERRADO}" itemValue="#{questaoMB.erradoCodigo}" />
+															<f:selectItem itemLabel="#{defaultMSG.LBL_ANULADA}" itemValue="#{questaoMB.anuladaCodigo}" />
+														</h:selectOneRadio>
+													</h:panelGroup>
+												</td>
+											</tr>
+										</table>
+									</h:panelGroup>
+									<h:panelGroup id="panelGabaritoInternoMultiplaEscolha" rendered="#{questaoMB.multiplaEscolha}">
+										<table>
+											<tr>
+												<td>
+													<h:outputLabel value="#{defaultMSG.LBL_ALTERNATIVA}" />
+												</td>
+											</tr>
+											<tr>
+												<td style="vertical-align:bottom; text-align: right !important;">
+													<p:inputTextarea rows="4" cols="155"  value="#{questaoMB.alternativa}" counter="counterAlternativa" maxlength="2000"       
+		    											counterTemplate="{0} caracteres restantes."  autoResize="true"/>
+		    										<br />
+													<h:outputText id="counterAlternativa" />
+													<p:selectBooleanCheckbox value="#{questaoMB.removerQuebraLinhaAlternativa}" style="float:left; margin-top: 3px;" />
+													<h:outputText value=" #{defaultMSG.LBL_REMOVER_QUEBRA_LINHAS}" style="float:left; margin-top: 3px;" />
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<p:commandButton action="#{questaoMB.incluirAlternativa}" value="#{defaultMSG.BTN_INCLUIR_ALTERNATIVA}" update=":formGrowl:growl, :formManterQuestao:panelGabaritoInternoMultiplaEscolha" />
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<p:dataTable id="listaAlternativas" value="#{questaoMB.alternativas}" rendered="#{questaoMB.renderizaTabelaAlternativas}" 
+														var="e" rows="5" selection="#{questaoMB.entity.alternativaGabarito}">
+														<f:facet name="header">
+															#{defaultMSG.LBL_ALTERNATIVAS}
+														</f:facet>
+														<p:column headerText="#{defaultMSG.LBL_GABARITO}" selectionMode="single" style="width:50px" />  
+														<p:column sortBy="alternativa" headerText="#{defaultMSG.LBL_ALTERNATIVA}">
+															<h:outputText value="#{e.alternativa}" />
+														</p:column>
+													</p:dataTable>
+												</td>
+											</tr>
+										</table>
+									</h:panelGroup>
+								</h:panelGroup>
+							</td>
+						</tr>
+						
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{questaoMB.incluirNaLista}" value="#{defaultMSG.BTN_INCLUIR_NA_LISTA}" 
+									disabled="#{questaoMB.desabilitaBotaoIncluirNaLista}" update=":formGrowl:growl, :formManterQuestao" />
+								<span />
+								<p:commandButton action="#{questaoMB.voltar}" value="#{defaultMSG.BTN_VOLTAR}">
+									<f:ajax execute="@this" />
+								</p:commandButton>
+							</td>
+						</tr>
+					</table>
+					<table style="width: 100%;">
+						<tr>
+							<td>
+								<h:panelGroup id="tabelaQuestoes">
+									<p:dataTable rendered="#{questaoMB.renderizaTabelaQuestoes}" value="#{questaoMB.listaQuestaoCadastro}" var="e" rows="10" paginator="true" 
+										paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+										<f:facet name="header">
+											#{defaultMSG.LBL_QUESTOES}
+										</f:facet>
+										<p:column sortBy="numero" headerText="#{defaultMSG.LBL_NUMERO}" width="9%">
+											<h:outputText value="#{e.numero}" />
+										</p:column>
+										<p:column sortBy="questao" headerText="#{defaultMSG.LBL_QUESTAO}" width="57%">
+											<h:outputText value="#{e.questao}" />
+										</p:column>
+										<p:column sortBy="categoria.disciplina.nome" headerText="#{defaultMSG.LBL_DISCIPLINA}" width="17%">
+											<h:outputText value="#{e.categoria.disciplina}" />
+										</p:column>
+										<p:column sortBy="categoria.nome" headerText="#{defaultMSG.LBL_MATERIA}" width="17%">
+											<h:outputText value="#{e.categoria}" />
+										</p:column>
+										<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
+											<p:commandButton id="deletetButton" update=":formManterQuestao:tabelaQuestoes, :formGrowl:growl" action="#{questaoMB.excluirQuestaoDaLista}" icon="ui-icon-close" title="Excluir">  
+								                <f:setPropertyActionListener value="#{e}" target="#{questaoMB.questaoExclusao}" />  
+								            </p:commandButton>
+										</p:column>
+									</p:dataTable>
+								</h:panelGroup>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:panelGroup id="botaoSalvarAlterar">
+									<p:commandButton action="#{questaoMB.salvarOuAlterar}" value="#{defaultMSG.BTN_SALVAR}" rendered="#{questaoMB.renderizaBotaoSalvar}" update=":formGrowl:growl, :formManterQuestao" />
+								</h:panelGroup>
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

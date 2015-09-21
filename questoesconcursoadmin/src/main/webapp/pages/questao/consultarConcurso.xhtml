@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formConsultaConcurso">
+			<p:fieldset legend="Consultar Concurso" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ORGAO}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_BANCA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p:selectOneMenu value="#{concursoMB.entity.orgao}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+									<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+									<f:selectItems value="#{concursoMB.listaOrgao}"/>
+								</p:selectOneMenu>
+							</td>
+							<td>
+								<p:selectOneMenu value="#{concursoMB.entity.banca}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+									<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+									<f:selectItems value="#{concursoMB.listaBanca}"/>
+								</p:selectOneMenu>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ANO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{concursoMB.entity.ano}" maxlength="4" style="width: 40px;" />
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{concursoMB.pesquisar}" value="#{defaultMSG.BTN_PESQUISAR}" update=":formConsultaConcurso:tabelaConsulta, :formGrowl:growl">
+								</p:commandButton>
+								<p:commandButton action="#{concursoMB.novo}" value="#{defaultMSG.BTN_NOVO}" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+				
+				<h:panelGroup id="tabelaConsulta">
+					<p:dataTable rendered="#{concursoMB.renderizaTabelaPesquia}" value="#{concursoMB.entityList}" var="e" rows="10" paginator="true" rowsPerPageTemplate="5,10,15" 
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+						<f:facet name="header">
+							Usuários
+						</f:facet>
+						<p:column sortBy="orgao" headerText="#{defaultMSG.LBL_ORGAO}">
+							<h:outputText value="#{e.orgao}" />
+						</p:column>
+						<p:column sortBy="orgaoAbreviacao" headerText="#{defaultMSG.LBL_ABREVIACAO}">
+							<h:outputText value="#{e.orgao.orgaoAbreviacao}" />
+						</p:column>
+						<p:column sortBy="banca.nome" headerText="#{defaultMSG.LBL_BANCA}">
+							<h:outputText value="#{e.banca}" />
+						</p:column>
+						<p:column sortBy="ano" headerText="#{defaultMSG.LBL_ANO}">
+							<h:outputText value="#{e.ano}" />
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EDITAR}" style="text-align: center;">
+							<p:commandButton id="editButton" action="#{concursoMB.editar}" icon="ui-icon-pencil" title="Editar">  
+				                <f:setPropertyActionListener value="#{e}" target="#{concursoMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
+							<p:commandButton id="deletetButton" update=":formConsultaConcurso:tabelaConsulta, :formGrowl:growl" action="#{concursoMB.excluir}" icon="ui-icon-close" title="Excluir">  
+				                <f:setPropertyActionListener value="#{e}" target="#{concursoMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

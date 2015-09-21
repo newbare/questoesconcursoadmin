@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterProvaQuestao">
+			<p:fieldset legend="Cadastrar Prova e Questões" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_CONCURSO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{questaoMB.concurso}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;" 
+												id="concursos" valueChangeListener="#{questaoMB.onSelectConcurso}">
+												<f:ajax event="change" execute="concursos" render=":formManterProvaQuestao" />
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{questaoMB.listaConcursos}"/>
+											</p:selectOneMenu>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<h:panelGroup id="tabelaProvas">
+						<p:dataTable value="#{questaoMB.provasDisponiveis}" var="e" rows="10" paginator="true" selection="#{questaoMB.provasSelecionadas}"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+							<f:facet name="header">
+								Provas
+							</f:facet>
+							<p:column selectionMode="multiple" style="width:4%" />
+							<p:column headerText="#{defaultMSG.LBL_CARGO}">
+								<h:outputText value="#{e.cca.cargo}" />
+							</p:column>
+							<p:column headerText="#{defaultMSG.LBL_AREA}">
+								<h:outputText value="#{e.cca.area}" />
+							</p:column>
+							<p:column headerText="#{defaultMSG.LBL_ESPECIALIDADE}">
+								<h:outputText value="#{e.cca.especialidade}" />
+							</p:column>
+							<p:column headerText="#{defaultMSG.LBL_RAMO}">
+								<h:outputText value="#{e.cca.ramo}" />
+							</p:column>
+						</p:dataTable>
+					</h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{questaoMB.proximo}" value="#{defaultMSG.BTN_PROXIMO}" update=":formManterProvaQuestao, :formGrowl:growl" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

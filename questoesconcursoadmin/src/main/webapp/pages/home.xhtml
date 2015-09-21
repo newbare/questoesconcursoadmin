@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:c="http://java.sun.com/jsp/jstl/core"
+   template="/WEB-INF/templates/templateCliente.xhtml">
+	<ui:define name="content">
+		<h:form id="formHome">
+			<h:panelGroup>
+				<table>
+					<tr>
+						<td>
+							<h:outputLabel value="#{defaultMSG.LBL_DISCIPLINA}" />
+						</td>
+						<td>
+							<h:outputLabel value="#{defaultMSG.LBL_MATERIA}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p:selectOneMenu id="listaDisciplina" value="#{questaoClienteMB.disciplinaPesquisa}" converter="chaveConverteObjeto" 
+								valueChangeListener="#{questaoClienteMB.onSelectDisciplina}" tabindex="0" style="width: 485px;" styleClass="corSelectOneMenu">
+								<f:ajax event="change" execute="listaDisciplina" render=":formHome:listaMateria" />
+								<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+								<f:selectItems value="#{questaoClienteMB.listaDisciplinas}"/>
+							</p:selectOneMenu>
+						</td>
+						<td>
+							<p:selectOneMenu id="listaMateria" value="#{questaoClienteMB.categoriaPesquisa}" disabled="#{questaoClienteMB.disableMateria}"
+								converter="chaveConverteObjeto" tabindex="0" style="width: 485px;" styleClass="corSelectOneMenu">
+								<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+								<f:selectItems value="#{questaoClienteMB.listaCategorias}"/>
+							</p:selectOneMenu>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h:outputLabel value="#{defaultMSG.LBL_CONCURSO}" />
+						</td>
+						<td>
+							<h:outputLabel value="#{defaultMSG.LBL_PROVAS}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p:selectOneMenu value="#{questaoClienteMB.concursoPesquisa}" converter="chaveConverteObjeto" tabindex="0" style="width: 485px;" 
+								id="concursos" valueChangeListener="#{questaoClienteMB.onSelectConcurso}" styleClass="corSelectOneMenu">
+								<f:ajax event="change" execute="concursos" render=":formHome:provasDisponiveis" />
+								<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+								<f:selectItems value="#{questaoClienteMB.listaConcursos}"/>
+							</p:selectOneMenu>
+						</td>
+						<td>
+							<p:selectOneMenu id="provasDisponiveis" value="#{questaoClienteMB.entity.prova}" converter="chaveConverteObjeto" disabled="#{questaoClienteMB.disableProvasDisponiveis}"
+								tabindex="0" style="width: 485px;" styleClass="corSelectOneMenu">
+								<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+								<f:selectItems value="#{questaoClienteMB.provasDisponiveis}"/>
+							</p:selectOneMenu>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h:outputLabel value="#{defaultMSG.LBL_PALAVRA_CHAVE}" />
+						</td>
+						<td>
+							<h:outputLabel value="#{defaultMSG.LBL_TIPO_QUESTAO}" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h:inputText value="#{questaoClienteMB.entity.palavraChave}" style="width: 485px;" />
+						</td>
+						<td>
+							<p:selectOneMenu id="tipoQuestao" value="#{questaoClienteMB.entity.tipoQuestao}" converter="chaveConverteObjeto"
+								tabindex="0" style="width: 485px;" styleClass="corSelectOneMenu">
+								<f:selectItem itemLabel="#{defaultMSG.LBL_TODOS}" itemValue=""/>
+								<f:selectItems value="#{questaoClienteMB.tiposQuestao}"/>
+							</p:selectOneMenu>
+						</td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td>
+							<p:commandButton action="#{questaoClienteMB.pesquisar}" value="#{defaultMSG.BTN_PESQUISAR}" update=":formGrowl:growl, :formHome:listaQuestoes" />
+						</td>
+					</tr>
+				</table>
+			</h:panelGroup>
+			<h:panelGroup id="listaQuestoes">
+				<h:panelGroup id="painelInternoListaQuestoes" rendered="#{questaoClienteMB.renderizaTabelaPesquia}">
+					<ui:repeat id="resultadoQuestoes" var="q" value="#{questaoClienteMB.paginator.model}">
+    					<div class="divPrincipalQuestao">
+    						<section id="cabecalhoQuestao">
+    						#{q.id}
+    							<span class="titulosCabecalho">Disciplina:</span> #{q.categoria.disciplina}
+    							<span class="titulosCabecalho">Matéria:</span> #{q.categoria.nome}
+    						</section>
+    						<section id="enunciado">
+    							<p:commandLink id="ajax" actionListener="#{questaoClienteMB.visualizarEnunciado}" update=":formHome:dialogEnunciado" oncomplete="PF('modalEnunciado').show();">
+							        <h:outputText value="Enunciado" />
+							        <f:setPropertyActionListener value="#{q}" target="#{questaoClienteMB.entity}" />
+							    </p:commandLink>
+    						</section>
+    						<section id="questao">
+    							#{status.index} #{q.questao}
+    						</section>
+    						<h:panelGroup id="alternativasAndGabaritoPainel">
+	    						<section id="AlternativasAndGabarito">
+	    							<p:dataTable id="listaAlternativas" value="#{q.listaAlternativa}" 
+										var="e" styleClass="tabelaQuestoesCliente">
+										<p:column headerText="Alternativa" style="width:50px" />  
+										<p:column headerText="Opção">
+											<h:outputText value="#{e.alternativa}" />
+										</p:column>
+									</p:dataTable>
+	    							<h:outputText value="ACERTOU" rendered="#{q.resposta}" />
+	    						</section>
+									<p:commandButton value="Responder" action="#{questaoClienteMB.responder}" title="Responder" 
+										update=":formHome:resultadoQuestoes:alternativasAndGabaritoPainel">  
+						                <f:setPropertyActionListener value="#{q}" target="#{questaoClienteMB.entity}" />  
+						            </p:commandButton>
+	    							Botão Comentários
+    						</h:panelGroup>
+    					</div>
+    					<br/>
+					</ui:repeat>
+					<h:commandButton value="&lt; prev" action="#{questaoClienteMB.paginator.prev}"/>
+			        <h:outputText value="#{questaoClienteMB.paginator.pageIndex} / #{questaoClienteMB.paginator.pages}"/>
+			        <h:commandButton value="next &gt;" action="#{questaoClienteMB.paginator.next}"/>
+			        <h:inputHidden value="#{questaoClienteMB.paginator.pageIndex}"/>
+				</h:panelGroup>
+			</h:panelGroup>
+			<p:dialog id="dialogEnunciado" header="Enunciado" widgetVar="modalEnunciado" modal="true" height="480" width="800" resizable="false">
+				<p:inputTextarea rows="36" cols="125"  value="#{questaoClienteMB.entity.textoDescritivo.texto}" maxlength="4000" disabled="true" style="opacity: 1 !important;" autoResize="true"/>
+			</p:dialog> 
+		</h:form>
+	</ui:define>
+</ui:composition> 

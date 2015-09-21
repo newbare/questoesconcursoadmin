@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formConsultaCategoria">
+			<p:fieldset legend="Consultar Matéria" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_MATERIA}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_DISCIPLINA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{categoriaMB.entity.nome}" maxlength="100" size="60" />
+							</td>
+							<td>
+								<p:selectOneMenu value="#{categoriaMB.entity.disciplina}" converter="chaveConverteObjeto" tabindex="0">
+									<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+									<f:selectItems value="#{categoriaMB.listaDisciplina}"/>
+								</p:selectOneMenu>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{categoriaMB.pesquisar}" value="#{defaultMSG.BTN_PESQUISAR}" update=":formConsultaCategoria:tabelaConsulta, :formGrowl:growl">
+								</p:commandButton>
+								<p:commandButton action="#{categoriaMB.novo}" value="#{defaultMSG.BTN_NOVO}" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+				
+				<h:panelGroup id="tabelaConsulta">
+					<p:dataTable rendered="#{categoriaMB.renderizaTabelaPesquia}" value="#{categoriaMB.entityList}" var="e" rows="10" paginator="true" rowsPerPageTemplate="5,10,15" 
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+						<f:facet name="header">
+							Usuários
+						</f:facet>
+						<p:column sortBy="nome" headerText="#{defaultMSG.LBL_NOME}">
+							<h:outputText value="#{e.nome}" />
+						</p:column>
+						<p:column sortBy="disciplina.nome" headerText="#{defaultMSG.LBL_DISCIPLINA}">
+							<h:outputText value="#{e.disciplina}" />
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EDITAR}" style="text-align: center;">
+							<p:commandButton id="editButton" action="#{categoriaMB.editar}" icon="ui-icon-pencil" title="Editar">  
+				                <f:setPropertyActionListener value="#{e}" target="#{categoriaMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
+							<p:commandButton id="deletetButton" update=":formConsultaCategoria:tabelaConsulta, :formGrowl:growl" action="#{categoriaMB.excluir}" icon="ui-icon-close" title="Excluir">  
+				                <f:setPropertyActionListener value="#{e}" target="#{categoriaMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

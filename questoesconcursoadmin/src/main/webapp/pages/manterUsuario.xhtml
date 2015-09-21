@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterUsuario">
+			<p:fieldset legend="Cadastrar Usuário" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_NOME}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{pessoaMB.pessoa.nome}" maxlength="200" size="100" />
+							</td>
+							
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_EMAIL}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{pessoaMB.usuario.email}" maxlength="150" size="100" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_CPF}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p:inputMask value="#{pessoaMB.pessoa.cpf}" mask="999.999.999-99"></p:inputMask>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_SENHA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputSecret value="#{pessoaMB.password}" maxlength="100" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_CONFIRMAR_SENHA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputSecret value="#{pessoaMB.confirmarPassword}" maxlength="100" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_PERFIS}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+	    						<p:pickList id="pickListPerfis" value="#{pessoaMB.perfis}" var="perfil" itemLabel="#{perfil}" itemValue="#{perfil}" />
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{pessoaMB.salvarOuAlterar}" value="#{defaultMSG.BTN_SALVAR}" update=":formGrowl:growl" />
+								<span />
+								<p:commandButton action="#{pessoaMB.voltar}" value="#{defaultMSG.BTN_VOLTAR}" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

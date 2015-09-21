@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterConcurso">
+			<p:fieldset legend="Cadastrar Concurso" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ORGAO}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_BANCA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{concursoMB.entity.orgao}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{concursoMB.listaOrgao}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{concursoMB.incluirOrgao}">
+												<f:setPropertyActionListener value="manterConcurso" target="#{orgaoMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{concursoMB.entity.banca}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{concursoMB.listaBanca}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{concursoMB.incluirBanca}">
+												<f:setPropertyActionListener value="manterConcurso" target="#{bancaMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ANO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{concursoMB.entity.ano}" maxlength="4" style="width: 40px;" />
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{concursoMB.proximo}" value="#{defaultMSG.BTN_PROXIMO}" update=":formGrowl:growl" />
+								<span />
+								<p:commandButton action="#{concursoMB.voltar}" value="#{defaultMSG.BTN_VOLTAR}">
+									<f:ajax execute="@this" />
+								</p:commandButton>
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

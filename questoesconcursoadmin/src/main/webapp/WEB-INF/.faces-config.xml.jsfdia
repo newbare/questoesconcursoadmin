@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterUsuario::#pages#consultarUsuario.xhtml" NAME="output"
+    PATH="/pages/consultarUsuario.xhtml"
+    TARGET="rules:#pages#consultarUsuario.xhtml"
+    TITLE="menuManterUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#consultarUsuario.xhtml"
+  PATH="/pages/consultarUsuario.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#consultarUsuario.xhtml:0" NAME="item"
+   PATH="/pages/consultarUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#manterUsuario.xhtml"
+    NAME="output" PATH="/pages/manterUsuario.xhtml"
+    TARGET="rules:#pages#manterUsuario.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#manterUsuario.xhtml"
+    NAME="output1" PATH="/pages/manterUsuario.xhtml"
+    TARGET="rules:#pages#manterUsuario.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#manterUsuario.xhtml"
+  PATH="/pages/manterUsuario.xhtml" SHAPE="448,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#manterUsuario.xhtml:0" NAME="item"
+   PATH="/pages/manterUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#consultarUsuario.xhtml"
+    NAME="output" PATH="/pages/consultarUsuario.xhtml"
+    TARGET="rules:#pages#consultarUsuario.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="salvar::#pages#consultarUsuario.xhtml"
+    NAME="output1" PATH="/pages/consultarUsuario.xhtml"
+    TARGET="rules:#pages#consultarUsuario.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="alterar::#pages#consultarUsuario.xhtml"
+    NAME="output2" PATH="/pages/consultarUsuario.xhtml"
+    TARGET="rules:#pages#consultarUsuario.xhtml" TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterArea::#pages#questao#consultarArea.xhtml"
+    NAME="output" PATH="/pages/questao/consultarArea.xhtml"
+    TARGET="rules:#pages#questao#consultarArea.xhtml"
+    TITLE="menuManterArea" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarBanca.xhtml"
+  PATH="/pages/questao/consultarBanca.xhtml" SHAPE="240,209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarBanca.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarBanca.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterBanca.xhtml"
+    NAME="output" PATH="/pages/questao/manterBanca.xhtml"
+    TARGET="rules:#pages#questao#manterBanca.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterBanca.xhtml"
+    NAME="output1" PATH="/pages/questao/manterBanca.xhtml"
+    TARGET="rules:#pages#questao#manterBanca.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterBanca.xhtml"
+  PATH="/pages/questao/manterBanca.xhtml" SHAPE="464,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterBanca.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterBanca.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#questao#consultarBanca.xhtml"
+    NAME="output" PATH="/pages/questao/consultarBanca.xhtml"
+    TARGET="rules:#pages#questao#consultarBanca.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="salvar::#pages#questao#consultarBanca.xhtml"
+    NAME="output1" PATH="/pages/questao/consultarBanca.xhtml"
+    TARGET="rules:#pages#questao#consultarBanca.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarBanca.xhtml" NAME="output2"
+    PATH="/pages/questao/consultarBanca.xhtml"
+    TARGET="rules:#pages#questao#consultarBanca.xhtml" TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcurso::#pages#questao#manterConcurso.xhtml"
+    NAME="output3" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcurso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::2" SHAPE="32,369,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterBanca::#pages#questao#consultarBanca.xhtml"
+    NAME="output" PATH="/pages/questao/consultarBanca.xhtml"
+    TARGET="rules:#pages#questao#consultarBanca.xhtml"
+    TITLE="menuManterBanca" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::3" SHAPE="48,769,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterCategoria::#pages#questao#consultarCategoria.xhtml"
+    NAME="output" PATH="/pages/questao/consultarCategoria.xhtml"
+    TARGET="rules:#pages#questao#consultarCategoria.xhtml"
+    TITLE="menuManterCategoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarCategoria.xhtml"
+  PATH="/pages/questao/consultarCategoria.xhtml" SHAPE="240,673,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarCategoria.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarCategoria.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterCategoria.xhtml"
+    NAME="output" PATH="/pages/questao/manterCategoria.xhtml"
+    TARGET="rules:#pages#questao#manterCategoria.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editar::#pages#questao#manterCategoria.xhtml" NAME="output1"
+    PATH="/pages/questao/manterCategoria.xhtml"
+    TARGET="rules:#pages#questao#manterCategoria.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterCategoria.xhtml"
+  PATH="/pages/questao/manterCategoria.xhtml" SHAPE="48,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterCategoria.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterCategoria.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#pages#questao#consultarCategoria.xhtml" NAME="output"
+    PATH="/pages/questao/consultarCategoria.xhtml"
+    TARGET="rules:#pages#questao#consultarCategoria.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="salvar::#pages#questao#consultarCategoria.xhtml" NAME="output1"
+    PATH="/pages/questao/consultarCategoria.xhtml"
+    TARGET="rules:#pages#questao#consultarCategoria.xhtml"
+    TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarCategoria.xhtml" NAME="output2"
+    PATH="/pages/questao/consultarCategoria.xhtml"
+    TARGET="rules:#pages#questao#consultarCategoria.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterDisciplina::#pages#questao#manterDisciplina.xhtml"
+    NAME="output3" PATH="/pages/questao/manterDisciplina.xhtml"
+    TARGET="rules:#pages#questao#manterDisciplina.xhtml"
+    TITLE="manterDisciplina" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::4" SHAPE="32,1489,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterCargo::#pages#questao#consultarCargo.xhtml"
+    NAME="output" PATH="/pages/questao/consultarCargo.xhtml"
+    TARGET="rules:#pages#questao#consultarCargo.xhtml"
+    TITLE="menuManterCargo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarConcurso.xhtml"
+  PATH="/pages/questao/consultarConcurso.xhtml" SHAPE="240,1505,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarConcurso.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarConcurso.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterConcurso.xhtml"
+    NAME="output" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterConcurso.xhtml"
+    NAME="output1" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterConcurso.xhtml"
+  PATH="/pages/questao/manterConcurso.xhtml" SHAPE="288,385,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterConcurso.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterConcurso.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#pages#questao#consultarConcurso.xhtml" NAME="output"
+    PATH="/pages/questao/consultarConcurso.xhtml"
+    TARGET="rules:#pages#questao#consultarConcurso.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="salvar::#pages#questao#consultarConcurso.xhtml" NAME="output1"
+    PATH="/pages/questao/consultarConcurso.xhtml"
+    TARGET="rules:#pages#questao#consultarConcurso.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarConcurso.xhtml" NAME="output2"
+    PATH="/pages/questao/consultarConcurso.xhtml"
+    TARGET="rules:#pages#questao#consultarConcurso.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterBanca::#pages#questao#manterBanca.xhtml" NAME="output3"
+    PATH="/pages/questao/manterBanca.xhtml"
+    TARGET="rules:#pages#questao#manterBanca.xhtml" TITLE="manterBanca" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterOrgao::#pages#questao#manterOrgao.xhtml" NAME="output4"
+    PATH="/pages/questao/manterOrgao.xhtml"
+    TARGET="rules:#pages#questao#manterOrgao.xhtml" TITLE="manterOrgao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="proximo::#pages#questao#manterConcursoContinuacao.xhtml"
+    NAME="output5" PATH="/pages/questao/manterConcursoContinuacao.xhtml"
+    TARGET="rules:#pages#questao#manterConcursoContinuacao.xhtml"
+    TITLE="proximo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarDisciplina.xhtml"
+  PATH="/pages/questao/consultarDisciplina.xhtml" SHAPE="240,1537,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarDisciplina.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarDisciplina.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterDisciplina.xhtml"
+    NAME="output" PATH="/pages/questao/manterDisciplina.xhtml"
+    TARGET="rules:#pages#questao#manterDisciplina.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editar::#pages#questao#manterDisciplina.xhtml" NAME="output1"
+    PATH="/pages/questao/manterDisciplina.xhtml"
+    TARGET="rules:#pages#questao#manterDisciplina.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterDisciplina.xhtml"
+  PATH="/pages/questao/manterDisciplina.xhtml" SHAPE="320,2017,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterDisciplina.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterDisciplina.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#pages#questao#consultarDisciplina.xhtml" NAME="output"
+    PATH="/pages/questao/consultarDisciplina.xhtml"
+    TARGET="rules:#pages#questao#consultarDisciplina.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="salvar::#pages#questao#consultarDisciplina.xhtml" NAME="output1"
+    PATH="/pages/questao/consultarDisciplina.xhtml"
+    TARGET="rules:#pages#questao#consultarDisciplina.xhtml"
+    TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarDisciplina.xhtml"
+    NAME="output2" PATH="/pages/questao/consultarDisciplina.xhtml"
+    TARGET="rules:#pages#questao#consultarDisciplina.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterCategoria::#pages#questao#manterCategoria.xhtml"
+    NAME="output3" PATH="/pages/questao/manterCategoria.xhtml"
+    TARGET="rules:#pages#questao#manterCategoria.xhtml"
+    TITLE="manterCategoria" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::5" SHAPE="32,2001,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterDisciplina::#pages#questao#consultarDisciplina.xhtml"
+    NAME="output" PATH="/pages/questao/consultarDisciplina.xhtml"
+    TARGET="rules:#pages#questao#consultarDisciplina.xhtml"
+    TITLE="menuManterDisciplina" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarQuestao.xhtml"
+  PATH="/pages/questao/consultarQuestao.xhtml" SHAPE="240,2673,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarQuestao.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarQuestao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterQuestao.xhtml"
+    NAME="output" PATH="/pages/questao/manterQuestao.xhtml"
+    TARGET="rules:#pages#questao#manterQuestao.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterQuestao.xhtml"
+    NAME="output1" PATH="/pages/questao/manterQuestao.xhtml"
+    TARGET="rules:#pages#questao#manterQuestao.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterQuestao.xhtml"
+  PATH="/pages/questao/manterQuestao.xhtml" SHAPE="464,3105,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterQuestao.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterQuestao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#pages#questao#consultarQuestao.xhtml" NAME="output"
+    PATH="/pages/questao/consultarQuestao.xhtml"
+    TARGET="rules:#pages#questao#consultarQuestao.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="salvar::#pages#questao#consultarQuestao.xhtml" NAME="output1"
+    PATH="/pages/questao/consultarQuestao.xhtml"
+    TARGET="rules:#pages#questao#consultarQuestao.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarQuestao.xhtml" NAME="output2"
+    PATH="/pages/questao/consultarQuestao.xhtml"
+    TARGET="rules:#pages#questao#consultarQuestao.xhtml" TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterOrgao.xhtml"
+  PATH="/pages/questao/manterOrgao.xhtml" SHAPE="560,513,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterOrgao.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterOrgao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#questao#consultarOrgao.xhtml"
+    NAME="output" PATH="/pages/questao/consultarOrgao.xhtml"
+    TARGET="rules:#pages#questao#consultarOrgao.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="salvar::#pages#questao#consultarOrgao.xhtml"
+    NAME="output1" PATH="/pages/questao/consultarOrgao.xhtml"
+    TARGET="rules:#pages#questao#consultarOrgao.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcurso::#pages#questao#manterConcurso.xhtml"
+    NAME="output2" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcurso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#pages#questao#manterConcursoContinuacao.xhtml"
+  PATH="/pages/questao/manterConcursoContinuacao.xhtml"
+  SHAPE="560,513,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#pages#questao#manterConcursoContinuacao.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterConcursoContinuacao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#questao#manterConcurso.xhtml"
+    NAME="output" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="salvar::#pages#questao#consultarConcurso.xhtml" NAME="output1"
+    PATH="/pages/questao/consultarConcurso.xhtml"
+    TARGET="rules:#pages#questao#consultarConcurso.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarConcurso.xhtml" NAME="output2"
+    PATH="/pages/questao/consultarConcurso.xhtml"
+    TARGET="rules:#pages#questao#consultarConcurso.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="manterArea::#pages#questao#manterArea.xhtml"
+    NAME="output3" PATH="/pages/questao/manterArea.xhtml"
+    TARGET="rules:#pages#questao#manterArea.xhtml" TITLE="manterArea" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterEspecialidade::#pages#questao#manterEspecialidade.xhtml"
+    NAME="output4" PATH="/pages/questao/manterEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#manterEspecialidade.xhtml"
+    TITLE="manterEspecialidade" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterCargo::#pages#questao#manterCargo.xhtml" NAME="output5"
+    PATH="/pages/questao/manterCargo.xhtml"
+    TARGET="rules:#pages#questao#manterCargo.xhtml" TITLE="manterCargo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="manterRamo::#pages#questao#manterRamo.xhtml"
+    NAME="output6" PATH="/pages/questao/manterRamo.xhtml"
+    TARGET="rules:#pages#questao#manterRamo.xhtml" TITLE="manterRamo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::6" SHAPE="32,3233,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::6" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterConcurso::#pages#questao#consultarConcurso.xhtml"
+    NAME="output" PATH="/pages/questao/consultarConcurso.xhtml"
+    TARGET="rules:#pages#questao#consultarConcurso.xhtml"
+    TITLE="menuManterConcurso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarOrgao.xhtml"
+  PATH="/pages/questao/consultarOrgao.xhtml" SHAPE="240,3905,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarOrgao.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarOrgao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterOrgao.xhtml"
+    NAME="output" PATH="/pages/questao/manterOrgao.xhtml"
+    TARGET="rules:#pages#questao#manterOrgao.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterOrgao.xhtml"
+    NAME="output1" PATH="/pages/questao/manterOrgao.xhtml"
+    TARGET="rules:#pages#questao#manterOrgao.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::7" SHAPE="32,4561,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterEspecialidade::#pages#questao#consultarEspecialidade.xhtml"
+    NAME="output" PATH="/pages/questao/consultarEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#consultarEspecialidade.xhtml"
+    TITLE="menuManterEspecialidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarArea.xhtml"
+  PATH="/pages/questao/consultarArea.xhtml" SHAPE="240,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarArea.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarArea.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterArea.xhtml"
+    NAME="output" PATH="/pages/questao/manterArea.xhtml"
+    TARGET="rules:#pages#questao#manterArea.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterArea.xhtml"
+    NAME="output1" PATH="/pages/questao/manterArea.xhtml"
+    TARGET="rules:#pages#questao#manterArea.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterArea.xhtml"
+  PATH="/pages/questao/manterArea.xhtml" SHAPE="464,513,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterArea.xhtml:0" NAME="item"
+   PATH="/pages/questao/manterArea.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#questao#consultarArea.xhtml"
+    NAME="output" PATH="/pages/questao/consultarArea.xhtml"
+    TARGET="rules:#pages#questao#consultarArea.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="salvar::#pages#questao#consultarArea.xhtml"
+    NAME="output1" PATH="/pages/questao/consultarArea.xhtml"
+    TARGET="rules:#pages#questao#consultarArea.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcursoContinuacao::#pages#questao#manterConcurso.xhtml"
+    NAME="output2" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcursoContinuacao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="alterar::#pages#questao#consultarArea.xhtml"
+    NAME="output3" PATH="/pages/questao/consultarArea.xhtml"
+    TARGET="rules:#pages#questao#consultarArea.xhtml" TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarEspecialidade.xhtml"
+  PATH="/pages/questao/consultarEspecialidade.xhtml" SHAPE="64,785,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarEspecialidade.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarEspecialidade.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="novo::#pages#questao#manterEspecialidade.xhtml" NAME="output"
+    PATH="/pages/questao/manterEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#manterEspecialidade.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editar::#pages#questao#manterEspecialidade.xhtml" NAME="output1"
+    PATH="/pages/questao/manterEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#manterEspecialidade.xhtml"
+    TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterEspecialidade.xhtml"
+  PATH="/pages/questao/manterEspecialidade.xhtml" SHAPE="336,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterEspecialidade.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterEspecialidade.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#pages#questao#consultarEspecialidade.xhtml"
+    NAME="output" PATH="/pages/questao/consultarEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#consultarEspecialidade.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="salvar::#pages#questao#consultarEspecialidade.xhtml"
+    NAME="output1" PATH="/pages/questao/consultarEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#consultarEspecialidade.xhtml"
+    TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarEspecialidade.xhtml"
+    NAME="output3" PATH="/pages/questao/consultarEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#consultarEspecialidade.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcursoContinuacao::#pages#questao#manterConcurso.xhtml"
+    NAME="output2" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcursoContinuacao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="manterRamo::#pages#questao#manterRamo.xhtml"
+    NAME="output4" PATH="/pages/questao/manterRamo.xhtml"
+    TARGET="rules:#pages#questao#manterRamo.xhtml" TITLE="manterRamo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::8" SHAPE="80,4721,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterQuestoesAvulsas::#pages#questao#consultarQuestao.xhtml"
+    NAME="output" PATH="/pages/questao/consultarQuestao.xhtml"
+    TARGET="rules:#pages#questao#consultarQuestao.xhtml"
+    TITLE="menuManterQuestoesAvulsas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::9" SHAPE="80,4721,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::9" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterProvaQuestao::#pages#questao#manterProvaQuestao.xhtml"
+    NAME="output" PATH="/pages/questao/manterProvaQuestao.xhtml"
+    TARGET="rules:#pages#questao#manterProvaQuestao.xhtml"
+    TITLE="menuManterProvaQuestao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarCargo.xhtml"
+  PATH="/pages/questao/consultarCargo.xhtml" SHAPE="240,2961,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarCargo.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarCargo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterCargo.xhtml"
+    NAME="output" PATH="/pages/questao/manterCargo.xhtml"
+    TARGET="rules:#pages#questao#manterCargo.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterCargo.xhtml"
+    NAME="output1" PATH="/pages/questao/manterCargo.xhtml"
+    TARGET="rules:#pages#questao#manterCargo.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterCargo.xhtml"
+  PATH="/pages/questao/manterCargo.xhtml" SHAPE="80,785,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterCargo.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterCargo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#questao#consultarCargo.xhtml"
+    NAME="output" PATH="/pages/questao/consultarCargo.xhtml"
+    TARGET="rules:#pages#questao#consultarCargo.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="salvar::#pages#questao#consultarCargo.xhtml"
+    NAME="output1" PATH="/pages/questao/consultarCargo.xhtml"
+    TARGET="rules:#pages#questao#consultarCargo.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#pages#questao#consultarCargo.xhtml" NAME="output2"
+    PATH="/pages/questao/consultarCargo.xhtml"
+    TARGET="rules:#pages#questao#consultarCargo.xhtml" TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcursoContinuacao::#pages#questao#manterConcurso.xhtml"
+    NAME="output3" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcursoContinuacao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#consultarRamo.xhtml"
+  PATH="/pages/questao/consultarRamo.xhtml" SHAPE="80,785,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#consultarRamo.xhtml:0"
+   NAME="item" PATH="/pages/questao/consultarRamo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novo::#pages#questao#manterRamo.xhtml"
+    NAME="output" PATH="/pages/questao/manterRamo.xhtml"
+    TARGET="rules:#pages#questao#manterRamo.xhtml" TITLE="novo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editar::#pages#questao#manterRamo.xhtml"
+    NAME="output1" PATH="/pages/questao/manterRamo.xhtml"
+    TARGET="rules:#pages#questao#manterRamo.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterRamo.xhtml"
+  PATH="/pages/questao/manterRamo.xhtml" SHAPE="352,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterRamo.xhtml:0" NAME="item"
+   PATH="/pages/questao/manterRamo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="voltar::#pages#questao#consultarRamo.xhtml"
+    NAME="output" PATH="/pages/questao/consultarRamo.xhtml"
+    TARGET="rules:#pages#questao#consultarRamo.xhtml" TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="salvar::#pages#questao#consultarRamo.xhtml"
+    NAME="output1" PATH="/pages/questao/consultarRamo.xhtml"
+    TARGET="rules:#pages#questao#consultarRamo.xhtml" TITLE="salvar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcursoContinuacao::#pages#questao#manterConcurso.xhtml"
+    NAME="output2" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcursoContinuacao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="alterar::#pages#questao#consultarRamo.xhtml"
+    NAME="output3" PATH="/pages/questao/consultarRamo.xhtml"
+    TARGET="rules:#pages#questao#consultarRamo.xhtml" TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterEspecialidade::#pages#questao#manterEspecialidade.xhtml"
+    NAME="output4" PATH="/pages/questao/manterEspecialidade.xhtml"
+    TARGET="rules:#pages#questao#manterEspecialidade.xhtml"
+    TITLE="manterEspecialidade" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::10" SHAPE="80,1521,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::10" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterOrgao::#pages#questao#consultarOrgao.xhtml"
+    NAME="output" PATH="/pages/questao/consultarOrgao.xhtml"
+    TARGET="rules:#pages#questao#consultarOrgao.xhtml"
+    TITLE="menuManterOrgao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::11" SHAPE="80,1585,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::11" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="menuManterRamo::#pages#questao#consultarRamo.xhtml"
+    NAME="output" PATH="/pages/questao/consultarRamo.xhtml"
+    TARGET="rules:#pages#questao#consultarRamo.xhtml"
+    TITLE="menuManterRamo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#questao#manterProvaQuestao.xhtml"
+  PATH="/pages/questao/manterProvaQuestao.xhtml" SHAPE="240,5905,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#questao#manterProvaQuestao.xhtml:0"
+   NAME="item" PATH="/pages/questao/manterProvaQuestao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="proximo::#pages#questao#manterQuestao.xhtml"
+    NAME="output" PATH="/pages/questao/manterQuestao.xhtml"
+    TARGET="rules:#pages#questao#manterQuestao.xhtml" TITLE="proximo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="manterConcurso::#pages#questao#manterConcurso.xhtml"
+    NAME="output1" PATH="/pages/questao/manterConcurso.xhtml"
+    TARGET="rules:#pages#questao#manterConcurso.xhtml"
+    TITLE="manterConcurso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formConsultaCargo">
+			<p:fieldset legend="Consultar Cargo" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_CARGO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{cargoMB.entity.nome}" maxlength="100" size="90" />
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{cargoMB.pesquisar}" value="#{defaultMSG.BTN_PESQUISAR}" update=":formConsultaCargo:tabelaConsulta, :formGrowl:growl" />
+								<p:commandButton action="#{cargoMB.novo}" value="#{defaultMSG.BTN_NOVO}" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+				
+				<h:panelGroup id="tabelaConsulta">
+					<p:dataTable rendered="#{cargoMB.renderizaTabelaPesquia}" value="#{cargoMB.entityList}" var="e" rows="10" paginator="true" 
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+						<f:facet name="header">
+							Usuários
+						</f:facet>
+						<p:column sortBy="nome" headerText="#{defaultMSG.LBL_CARGO}">
+							<h:outputText value="#{e.nome}" />
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EDITAR}" style="text-align: center;">
+							<p:commandButton id="editButton" action="#{cargoMB.editar}" icon="ui-icon-pencil" title="Editar">  
+				                <f:setPropertyActionListener value="#{e}" target="#{cargoMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
+							<p:commandButton id="deletetButton" update=":formConsultaCargo:tabelaConsulta, :formGrowl:growl" action="#{cargoMB.excluir}" icon="ui-icon-close" title="Excluir">  
+				                <f:setPropertyActionListener value="#{e}" target="#{cargoMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

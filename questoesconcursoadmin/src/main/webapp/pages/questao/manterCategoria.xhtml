@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterCategoria">
+			<p:fieldset legend="Cadastrar Matéria" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_MATERIA}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_DISCIPLINA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{categoriaMB.entity.nome}" maxlength="100" size="60" />
+							</td>
+							<td>
+								<p:selectOneMenu value="#{categoriaMB.entity.disciplina}" converter="chaveConverteObjeto" tabindex="0">
+									<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+									<f:selectItems value="#{categoriaMB.listaDisciplina}"/>
+								</p:selectOneMenu>
+							</td>
+							<td>
+								<p:commandButton value="..." action="#{categoriaMB.incluirDisciplina}">
+									<f:setPropertyActionListener value="manterCategoria" target="#{disciplinaMB.retornoRedirecionar}" />
+								</p:commandButton>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{categoriaMB.salvarOuAlterar}" value="#{defaultMSG.BTN_SALVAR}" update=":formGrowl:growl" />
+								<span />
+								<p:commandButton action="#{categoriaMB.voltar}" value="#{defaultMSG.BTN_VOLTAR}">
+									<f:ajax execute="@this" />
+								</p:commandButton>
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

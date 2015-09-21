@@ -1,0 +1,167 @@
+body {
+	font-family: serif;
+	font-size: 14px;
+	background-image: url("/questoesconcursoadmin/resources/img/fundo.jpg");
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+#container {
+	width: 100%;
+	margin:0 auto;         
+	text-align:left; /* "remédio" para o hack do IE */  
+}
+
+#content {
+	width: 1024px;
+	margin:0 auto;         
+	text-align:left; /* "remédio" para o hack do IE */ 
+	padding: 3px;
+	background: url("../imgs/bgMENU.png") repeat-x scroll center top #FFFFFF !important;
+}
+
+#cabecalho {
+	height: 42px;
+	position: relative !important;
+}
+
+#geral {
+	width: 1100px;
+	margin: auto;
+}
+
+#conteudo {
+	margin-top: 25px;
+	padding: 2% 2% 2% 2%;
+	box-shadow: -1px 1px 10px #333333;
+	min-height: 530px;
+	overflow: visible;
+	background-color: #FFFFFF;
+}
+
+#rodape {
+	
+}
+
+.ui-widget,.ui-widget .ui-widget {
+	font-size: 11.3px !important;
+}
+
+.divLogado {
+	margin-left: 12px;
+	background-color: #EBEBEB;
+	width: 150px;
+	height: 100px;
+	text-align: center;
+	background-attachment: scroll;
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+	display: block;
+}
+
+.logoLogin {
+	margin-left: 12px;
+	z-index: 1;
+}
+
+div.divPrincipalQuestao {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+}
+
+.divPrincipalQuestao section{
+	padding-bottom: 5px;
+	margin: 2px;
+}
+
+.titulosCabecalho {
+	font-weight: bold;
+}
+
+.icones{
+	width:65px;
+}
+
+/*
+.botaoCliente{
+	font: bold 12px/24px arial, helvetica, sans-aerif !important;	
+	padding:0px;
+	text-decoration: none;
+	text-align:center;	
+	color:#fff !important;
+	width:120px;  
+	height:24px;	
+	background-color: #00f !important;
+}
+input[type="submit"]:hover{
+	background-color: green !important;
+	border: 1px solid #999;color:#000;
+}
+*/
+
+/* Estilos para p:commandButton*/
+
+button
+{
+	height:20px;
+	color:#333;
+	cursor:pointer;
+	font-size:13px;
+	font-weight:bold;
+	font-family:Arial,Trebuchet MS,Verdana,GillSans;
+	border-top-color:#c1cdd9;
+	border-right-color:#6e7882;
+	border-bottom-color:#6e7882;
+	border-left-color:#c1cdd9;
+	border-top-width:2px;
+	border-right-width:2px;
+	border-bottom-width:2px;
+	border-left-width:2px;
+	border-top-style:solid;
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-left-style:solid;
+	background-color:url("../img/botao_hover.gif");
+	background-repeat:repeat-x;
+	background-position-x:0px;
+	background-position-y:0px;
+	background-color:#000 !important;
+	background:#6182C6 !important;
+	margin:3px 3px 3px 3px;
+}
+
+button:hover
+{
+   background-position: 0 -30px;
+   background-repeat: repeat-x;
+   background:#94A6CA !important;
+}
+
+/*
+div .ui-state-default{
+	background:#94A6CA !important;
+}
+*/
+
+/* Estilos para SelectOneMenu*/
+
+.corSelectOneMenu .ui-state-default{
+	background:#94A6CA !important;
+}
+
+.ui-state-hover{
+	background:#c1cdd9 !important;
+}
+
+/* Estilos para p:datatable*/
+
+.tabelaQuestoesCliente .ui-state-default{
+	background:#FFF !important;
+	color: #333;
+	border-top-color:#c1cdd9;
+	border-right-color:#FFF;
+	border-bottom-color:#FFF;
+	border-left-color:#FFF;
+}

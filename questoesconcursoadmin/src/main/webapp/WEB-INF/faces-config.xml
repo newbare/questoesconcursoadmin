@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is not required if you don't need any extra configuration. -->
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<converter>
+		<converter-id>chaveConverteObjeto</converter-id>
+		<converter-class>br.com.questoesconcursoadmin.converter.SimpleIndexConverter</converter-class>
+	</converter>
+
+	<!-- This descriptor activates the JSF 2.0 Servlet -->
+
+	<!-- Write your navigation rules here. You are encouraged to use CDI for 
+		creating @Named managed beans. -->
+
+	<!-- Navegações vindas do menu -->
+	
+	<!-- Navegação para a página de Usuário -->
+	<navigation-rule>
+		<display-name>Cadastrar Usuário</display-name>
+		<navigation-case>
+			<from-outcome>menuManterUsuario</from-outcome>
+			<to-view-id>/pages/consultarUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Area -->
+	<navigation-rule>
+		<display-name>Cadastrar Area</display-name>
+		<navigation-case>
+			<from-outcome>menuManterArea</from-outcome>
+			<to-view-id>/pages/questao/consultarArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Banca -->
+	<navigation-rule>
+		<display-name>Cadastrar Banca</display-name>
+		<navigation-case>
+			<from-outcome>menuManterBanca</from-outcome>
+			<to-view-id>/pages/questao/consultarBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Categoria -->
+	<navigation-rule>
+		<display-name>Cadastrar Categoria</display-name>
+		<navigation-case>
+			<from-outcome>menuManterCategoria</from-outcome>
+			<to-view-id>/pages/questao/consultarCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Cargo -->
+	<navigation-rule>
+		<display-name>Cadastrar Cargo</display-name>
+		<navigation-case>
+			<from-outcome>menuManterCargo</from-outcome>
+			<to-view-id>/pages/questao/consultarCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Disciplina -->
+	<navigation-rule>
+		<display-name>Cadastrar Disciplina</display-name>
+		<navigation-case>
+			<from-outcome>menuManterDisciplina</from-outcome>
+			<to-view-id>/pages/questao/consultarDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Concurso -->
+	<navigation-rule>
+		<display-name>Cadastrar Concurso</display-name>
+		<navigation-case>
+			<from-outcome>menuManterConcurso</from-outcome>
+			<to-view-id>/pages/questao/consultarConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Especialidade -->
+	<navigation-rule>
+		<display-name>Cadastrar Especialidade</display-name>
+		<navigation-case>
+			<from-outcome>menuManterEspecialidade</from-outcome>
+			<to-view-id>/pages/questao/consultarEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Questão Avulsas -->
+	<navigation-rule>
+		<display-name>Cadastrar Questões Avulsas</display-name>
+		<navigation-case>
+			<from-outcome>menuManterQuestoesAvulsas</from-outcome>
+			<to-view-id>/pages/questao/consultarQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Provas e Questões -->
+	<navigation-rule>
+		<display-name>Cadastrar Prova e Questões</display-name>
+		<navigation-case>
+			<from-outcome>menuManterProvaQuestao</from-outcome>
+			<to-view-id>/pages/questao/manterProvaQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Orgão -->
+	<navigation-rule>
+		<display-name>Cadastrar Orgão</display-name>
+		<navigation-case>
+			<from-outcome>menuManterOrgao</from-outcome>
+			<to-view-id>/pages/questao/consultarOrgao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navegação para a página de Ramo -->
+	<navigation-rule>
+		<display-name>Cadastrar Ramo</display-name>
+		<navigation-case>
+			<from-outcome>menuManterRamo</from-outcome>
+			<to-view-id>/pages/questao/consultarRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- Navigation Rule para as páginas do módulo de segurança -->
+	<!-- Navigation Rule a partir da tela de consulta de questões -->
+	<navigation-rule>
+		<display-name>Consultar Questões</display-name>
+		<from-view-id>/pages/questao/consultarQuestao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de questão -->
+	<navigation-rule>
+		<display-name>Cadastrar Questão</display-name>
+		<from-view-id>/pages/questao/manterQuestao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de prova e questão -->
+	<navigation-rule>
+		<display-name>Cadastrar Prova e Questão</display-name>
+		<from-view-id>/pages/questao/manterProvaQuestao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>proximo</from-outcome>
+			<to-view-id>/pages/questao/manterQuestao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcurso</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta de usuários -->
+	<navigation-rule>
+		<display-name>Consultar Usuário</display-name>
+		<from-view-id>/pages/consultarUsuario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/manterUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/manterUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- Navigation Rule a partir da tela de cadastro de usuários -->
+	<navigation-rule>
+		<display-name>Cadastrar Usuário</display-name>
+		<from-view-id>/pages/manterUsuario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/consultarUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/consultarUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/consultarUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule para as páginas do módulo de Questões -->
+	<!-- Navigation Rule a partir da tela de consulta Banca -->
+	<navigation-rule>
+		<display-name>Consultar Banca</display-name>
+		<from-view-id>/pages/questao/consultarBanca.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Banca -->
+	<navigation-rule>
+		<display-name>Cadastrar Banca</display-name>
+		<from-view-id>/pages/questao/manterBanca.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcurso</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta Categoria -->
+	<navigation-rule>
+		<display-name>Consultar Categoria</display-name>
+		<from-view-id>/pages/questao/consultarCategoria.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Categoria -->
+	<navigation-rule>
+		<display-name>Cadastrar Categoria</display-name>
+		<from-view-id>/pages/questao/manterCategoria.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterDisciplina</from-outcome>
+			<to-view-id>/pages/questao/manterDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta Disciplina -->
+	<navigation-rule>
+		<display-name>Consultar Disciplina</display-name>
+		<from-view-id>/pages/questao/consultarDisciplina.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Disciplina -->
+	<navigation-rule>
+		<display-name>Cadastrar Disciplina</display-name>
+		<from-view-id>/pages/questao/manterDisciplina.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarDisciplina.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterCategoria</from-outcome>
+			<to-view-id>/pages/questao/manterCategoria.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta Concurso -->
+	<navigation-rule>
+		<display-name>Consultar Concurso</display-name>
+		<from-view-id>/pages/questao/consultarConcurso.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta de Orgão -->
+	<navigation-rule>
+		<display-name>Consultar Orgão</display-name>
+		<from-view-id>/pages/questao/consultarOrgao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterOrgao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterOrgao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Orgão -->
+	<navigation-rule>
+		<display-name>Manter Orgão</display-name>
+		<from-view-id>/pages/questao/manterOrgao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarOrgao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarOrgao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcurso</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta de Area -->
+	<navigation-rule>
+		<display-name>Consultar Area</display-name>
+		<from-view-id>/pages/questao/consultarArea.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Area -->
+	<navigation-rule>
+		<display-name>Manter Area</display-name>
+		<from-view-id>/pages/questao/manterArea.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcursoContinuacao</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta de Especialidade -->
+	<navigation-rule>
+		<display-name>Consultar Especialidade</display-name>
+		<from-view-id>/pages/questao/consultarEspecialidade.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Especialidade -->
+	<navigation-rule>
+		<display-name>Manter Especialidade</display-name>
+		<from-view-id>/pages/questao/manterEspecialidade.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcursoContinuacao</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterRamo</from-outcome>
+			<to-view-id>/pages/questao/manterRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta de Ramo -->
+	<navigation-rule>
+		<display-name>Consultar Ramo</display-name>
+		<from-view-id>/pages/questao/consultarRamo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Especialidade -->
+	<navigation-rule>
+		<display-name>Manter Ramo</display-name>
+		<from-view-id>/pages/questao/manterRamo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcursoContinuacao</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterEspecialidade</from-outcome>
+			<to-view-id>/pages/questao/manterEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de consulta de Cargo -->
+	<navigation-rule>
+		<display-name>Consultar Cargo</display-name>
+		<from-view-id>/pages/questao/consultarCargo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>novo</from-outcome>
+			<to-view-id>/pages/questao/manterCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editar</from-outcome>
+			<to-view-id>/pages/questao/manterCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Cargo -->
+	<navigation-rule>
+		<display-name>Manter Cargo</display-name>
+		<from-view-id>/pages/questao/manterCargo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterConcursoContinuacao</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Concurso -->
+	<navigation-rule>
+		<display-name>Cadastrar Concurso</display-name>
+		<from-view-id>/pages/questao/manterConcurso.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/consultarConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterBanca</from-outcome>
+			<to-view-id>/pages/questao/manterBanca.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterOrgao</from-outcome>
+			<to-view-id>/pages/questao/manterOrgao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>proximo</from-outcome>
+			<to-view-id>/pages/questao/manterConcursoContinuacao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation Rule a partir da tela de cadastro de Concurso -->
+	<navigation-rule>
+		<display-name>Cadastrar Concurso Continuacao</display-name>
+		<from-view-id>/pages/questao/manterConcursoContinuacao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/pages/questao/manterConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>salvar</from-outcome>
+			<to-view-id>/pages/questao/consultarConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>alterar</from-outcome>
+			<to-view-id>/pages/questao/consultarConcurso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterArea</from-outcome>
+			<to-view-id>/pages/questao/manterArea.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterEspecialidade</from-outcome>
+			<to-view-id>/pages/questao/manterEspecialidade.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterCargo</from-outcome>
+			<to-view-id>/pages/questao/manterCargo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>manterRamo</from-outcome>
+			<to-view-id>/pages/questao/manterRamo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+
+	<application>
+		<locale-config>
+			<default-locale>pt</default-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>br.com.questoesconcursoadmin.resourses.Default_pt</base-name>
+			<var>defaultMSG</var>
+		</resource-bundle>
+	</application>
+
+</faces-config>

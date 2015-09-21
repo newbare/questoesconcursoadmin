@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:sec="http://www.springframework.org/security/facelets/tags"
+   >
+		<h:form id="formMenu">
+			<p:menubar id="menu" style="border: none !important; position: inherit;">
+				<p:submenu label="Questão" rendered="#{sec:ifAnyGranted( 'ROLE_COLABORADOR' )}">
+					<p:menuitem value="Cadastrar Questões Avulsas" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterQuestoesAvulsas"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Prova e Questões" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterProvaQuestao"></f:setPropertyActionListener>
+					</p:menuitem>
+				</p:submenu>
+				
+				<p:submenu label="Cadastro">
+					<p:menuitem value="Cadastrar Area" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterArea"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Banca" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterBanca"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Cargo" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterCargo"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Concurso" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterConcurso"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Disciplina" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterDisciplina"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Especialidade" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterEspecialidade"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Matéria" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterCategoria"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Orgão" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterOrgao"></f:setPropertyActionListener>
+					</p:menuitem>
+					<p:menuitem value="Cadastrar Ramo" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterRamo"></f:setPropertyActionListener>
+					</p:menuitem>
+				</p:submenu>
+				
+				<p:submenu label="Segurança" rendered="#{sec:ifAnyGranted( 'ROLE_ADMIN' )}">
+					<p:menuitem value="Cadastrar Usuário" action="#{menuMB.redirecionar}">
+						<f:setPropertyActionListener target="#{menuMB.paginaMenu}" value="menuManterUsuario"></f:setPropertyActionListener>
+					</p:menuitem>
+				</p:submenu>
+			</p:menubar>
+			
+		</h:form>
+</ui:composition> 

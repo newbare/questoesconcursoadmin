@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formManterConcursoContinuacao">
+			<p:fieldset legend="Cadastrar Concurso" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_CARGO}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_AREA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{concursoMB.cargo}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{concursoMB.listaCargo}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{concursoMB.incluirCargo}">
+												<f:setPropertyActionListener value="manterConcursoContinuacao" target="#{cargoMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{concursoMB.area}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{concursoMB.listaArea}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{concursoMB.incluirArea}">
+												<f:setPropertyActionListener value="manterConcursoContinuacao" target="#{areaMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_ESPECIALIDADE}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_RAMO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{concursoMB.especialidade}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{concursoMB.listaEspecialidade}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{concursoMB.incluirEspecialidade}">
+												<f:setPropertyActionListener value="manterConcursoContinuacao" target="#{especialidadeMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table cellpadding="0">
+									<tr>
+										<td>
+											<p:selectOneMenu value="#{concursoMB.ramo}" converter="chaveConverteObjeto" tabindex="0" style="width: 440px;">
+												<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+												<f:selectItems value="#{concursoMB.listaRamo}"/>
+											</p:selectOneMenu>
+										</td>
+										<td>
+											<p:commandButton value="..." action="#{concursoMB.incluirRamo}">
+												<f:setPropertyActionListener value="manterConcursoContinuacao" target="#{ramoMB.retornoRedirecionar}" />
+											</p:commandButton>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p:commandButton action="#{concursoMB.adicionarAreaCargoConcurso}" value="#{defaultMSG.BTN_ADICIONAR}" update=":formGrowl:growl, :formManterConcursoContinuacao" />
+							</td>
+						</tr>
+					</table>
+					<table style="width: 100%;">
+						<tr>
+							<td>
+								<h:panelGroup id="tabelaAreaCargoEspecializacao" style="width: 100%;">
+									<table style="width: 100%;">
+										<tr>
+											<td>
+												<p:dataTable rendered="#{concursoMB.renderizaTabelaAreaCargoEspecializacao}" value="#{concursoMB.entity.listaCargoConcursoArea}" var="e" rows="10" paginator="true" 
+													paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+													<f:facet name="header">
+													</f:facet>
+													<p:column sortBy="area.area" headerText="#{defaultMSG.LBL_AREA}" width="28%">
+														<h:outputText value="#{e.area}" />
+													</p:column>
+													<p:column sortBy="cargo.nome" headerText="#{defaultMSG.LBL_CARGO}" width="28%">
+														<h:outputText value="#{e.cargo}" />
+													</p:column>
+													<p:column sortBy="especialidade.descricao" headerText="#{defaultMSG.LBL_ESPECIALIDADE}" width="29%">
+														<h:outputText value="#{e.especialidade}" />
+													</p:column>
+													<p:column sortBy="ramo.ramo" headerText="#{defaultMSG.LBL_RAMO}" width="15%">
+														<h:outputText value="#{e.ramo}" />
+													</p:column>
+													<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
+														<p:commandButton id="deletetButton" update=":formManterConcursoContinuacao:tabelaAreaCargoEspecializacao, :formGrowl:growl" action="#{concursoMB.excluirCargoAreaConcurso}" icon="ui-icon-close" title="Excluir">  
+											                <f:setPropertyActionListener value="#{e}" target="#{concursoMB.cargoConcursoAreaExclusao}" />  
+											            </p:commandButton>
+													</p:column>
+												</p:dataTable>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p:commandButton action="#{concursoMB.salvarOuAlterar}" rendered="#{concursoMB.renderizaTabelaAreaCargoEspecializacao}" value="#{defaultMSG.BTN_SALVAR}" update=":formGrowl:growl" />
+												<span />
+												<p:commandButton action="#{concursoMB.voltar}" value="#{defaultMSG.BTN_VOLTAR}">
+													<f:ajax execute="@this" />
+												</p:commandButton>
+											</td>
+										</tr>
+									</table>
+								</h:panelGroup>
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

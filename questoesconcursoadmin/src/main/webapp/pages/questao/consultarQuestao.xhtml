@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formConsultarQuestao">
+			<p:fieldset legend="Consultar Questão" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_DISCIPLINA}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_MATERIA}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p:selectOneMenu id="listaDisciplina" value="#{questaoMB.disciplinaPesquisa}" converter="chaveConverteObjeto" 
+									valueChangeListener="#{questaoMB.onSelectDisciplina}" tabindex="0" style="width: 485px;">
+									<f:ajax event="change" execute="listaDisciplina" render=":formConsultarQuestao:listaMateria" />
+									<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+									<f:selectItems value="#{questaoMB.listaDisciplinas}"/>
+								</p:selectOneMenu>
+							</td>
+							<td>
+								<p:selectOneMenu id="listaMateria" value="#{questaoMB.categoriaPesquisa}" disabled="#{questaoMB.disableMateria}"
+									converter="chaveConverteObjeto" tabindex="0" style="width: 485px;">
+									<f:selectItem itemLabel="#{defaultMSG.LBL_SELECIONE}" itemValue=""/>
+									<f:selectItems value="#{questaoMB.listaCategorias}"/>
+								</p:selectOneMenu>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_PALAVRA_CHAVE}" />
+							</td>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_TIPO_QUESTAO}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{questaoMB.entity.palavraChave}" style="width: 485px;" />
+							</td>
+							<td>
+								<h:selectOneRadio id="tipoQuestao" value="#{questaoMB.entity.tipoQuestao}">
+									<f:selectItem itemLabel="#{defaultMSG.LBL_CERTO_ERRADO}" itemValue="#{questaoMB.tipoQuestaoCertoErrado}"  />
+									<f:selectItem itemLabel="#{defaultMSG.LBL_MULTIPLA_ESCOLHA}" itemValue="#{questaoMB.tipoQuestaoMultiplaEscolha}" />
+								</h:selectOneRadio>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{questaoMB.pesquisar}" value="#{defaultMSG.BTN_PESQUISAR}" update=":formGrowl:growl, :formConsultarQuestao:tabelaConsulta" />
+								<p:commandButton action="#{questaoMB.novo}" value="#{defaultMSG.BTN_NOVO}" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+				
+				<h:panelGroup id="tabelaConsulta">
+					<p:dataTable rendered="#{questaoMB.renderizaTabelaPesquia}" value="#{questaoMB.entityList}" var="e" rows="10" paginator="true" 
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+						<f:facet name="header">
+							Usuários
+						</f:facet>
+						<p:column sortBy="questao" headerText="#{defaultMSG.LBL_QUESTAO}" width="69%">
+							<h:outputText value="#{e.questao}" />
+						</p:column>
+						<p:column sortBy="tipoQuestao" headerText="#{defaultMSG.LBL_TIPO_QUESTAO}" width="15%">
+							<h:outputText value="#{defaultMSG.LBL_CERTO_ERRADO}" rendered="#{questaoMB.tipoQuestaoCertoErrado == e.tipoQuestao}" />
+							<h:outputText value="#{defaultMSG.LBL_MULTIPLA_ESCOLHA}" rendered="#{questaoMB.tipoQuestaoMultiplaEscolha == e.tipoQuestao}" />
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EDITAR}" style="text-align: center;" width="8%">
+							<p:commandButton id="editButton" action="#{questaoMB.editar}" icon="ui-icon-pencil" title="Editar">  
+				                <f:setPropertyActionListener value="#{e}" target="#{questaoMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;" width="8%">
+							<p:commandButton id="deletetButton" update=":formConsultarQuestao:tabelaConsulta, :formGrowl:growl" action="#{questaoMB.excluir}" icon="ui-icon-close" title="#{defaultMSG.LBL_EXCLUIR}">  
+				                <f:setPropertyActionListener value="#{e}" target="#{questaoMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 

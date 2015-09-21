@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="formConsultaDisciplina">
+			<p:fieldset legend="Consultar Disciplina" toggleable="true">
+				<h:panelGroup>
+					<table>
+						<tr>
+							<td>
+								<h:outputLabel value="#{defaultMSG.LBL_NOME}" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h:inputText value="#{disciplinaMB.entity.nome}" maxlength="100" size="60" />
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<p:commandButton action="#{disciplinaMB.pesquisar}" value="#{defaultMSG.BTN_PESQUISAR}" update=":formConsultaDisciplina:tabelaConsulta, :formGrowl:growl">
+								</p:commandButton>
+								<p:commandButton action="#{disciplinaMB.novo}" value="#{defaultMSG.BTN_NOVO}" />
+							</td>
+						</tr>
+					</table>
+				</h:panelGroup>
+				
+				<h:panelGroup id="tabelaConsulta">
+					<p:dataTable rendered="#{disciplinaMB.renderizaTabelaPesquia}" value="#{disciplinaMB.entityList}" var="e" rows="10" paginator="true" rowsPerPageTemplate="5,10,15" 
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+						<f:facet name="header">
+							Usuários
+						</f:facet>
+						<p:column sortBy="nome" headerText="#{defaultMSG.LBL_NOME}">
+							<h:outputText value="#{e.nome}" />
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EDITAR}" style="text-align: center;">
+							<p:commandButton id="editButton" action="#{disciplinaMB.editar}" icon="ui-icon-pencil" title="Editar">  
+				                <f:setPropertyActionListener value="#{e}" target="#{disciplinaMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+						<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
+							<p:commandButton id="deletetButton" update=":formConsultaDisciplina:tabelaConsulta, :formGrowl:growl" action="#{disciplinaMB.excluir}" icon="ui-icon-close" title="Excluir">  
+				                <f:setPropertyActionListener value="#{e}" target="#{disciplinaMB.entity}" />  
+				            </p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</h:panelGroup>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition> 
