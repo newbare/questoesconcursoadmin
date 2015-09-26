@@ -9,6 +9,7 @@ import javax.persistence.PersistenceException;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.questoesconcursoadmin.dao.DisciplinaDao;
@@ -26,6 +27,8 @@ public class DisciplinaDaoImp extends GenericDAOJPAImpl<Disciplina, Integer> imp
 		if(entity.getNome() != null && !"".equals(entity.getNome().trim())){
 			c.add(Restrictions.ilike("e.nome", entity.getNome(), MatchMode.ANYWHERE));
 		}
+		
+		c.addOrder(Order.asc("e.nome"));
 		
 		List<Disciplina> lista = (List<Disciplina>) c.list();
 		return lista;

@@ -14,6 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
@@ -66,7 +67,7 @@ public class QuestaoDaoImp extends GenericDAOJPAImpl<Questao, Long> implements Q
 			c.add(Restrictions.eq("e.tipoQuestao", entity.getTipoQuestao()));
 		}
 		
-		c.add(d);
+		c.add(d).addOrder(Order.asc("e.numero"));
 		
 //		if(entity != null && entity.getProva() != null && entity.getProva().getCca() != null && entity.getProva().getCca().getIdConcurso() != null){
 //			DetachedCriteria criteriaConcurso = DetachedCriteria.forClass(Concurso.class, "concurso");
@@ -78,8 +79,62 @@ public class QuestaoDaoImp extends GenericDAOJPAImpl<Questao, Long> implements Q
 		return lista;
 	}
 	
+	private String getQueryQuestoesSemProva(Questao entity){
+		return "select " +
+					"questao.id, questao.questao, " +
+					"texto.id, texto.texto, " +
+					"gabarito.idQuestao, gabarito.idAlternativa," +
+					"tipo.id " +
+				"from " + 
+					"Questao questao, Gabarito gabarito, TipoQuestao tipo, TextoDescritivo texto " +
+				"where " +
+					"questao.id = gabarito.idQuestao " + 
+				"and " +
+					"questao.tipoQuestao = tipo.id " + 
+				"and " +
+					"questao.textoDescritivo.id = texto.id " +
+				getCondicoes(entity) +
+				" order by questao.id";
+	}
+	
 	@Override
 	public List<Questao> findByEntityQuery(Questao entity)throws PersistenceException {
+		Query query = em.createQuery("" +getQueryQuestoesSemProva(entity));
+		
+		List<Object[]> objects = query.getResultList();
+		List<Questao> lista = configuraResultadoPesquisa(objects);
+		
+		return lista;
+	}
+	
+	private List<Questao> configuraResultadoPesquisa(List<Object[]> objects) {
+		List<Questao> lista = new ArrayList<Questao>();
+		Questao questao = null;
+		TextoDescritivo texto = null;
+		Gabarito gabarito = null;
+		
+		for (Object[] o : objects) {  
+			Object[] aux = o;  
+			questao = new Questao();
+			texto = new TextoDescritivo();
+			gabarito = new Gabarito();
+			
+			questao.setId((Long)aux[0]);
+			questao.setQuestao((String)aux[1]);
+			texto.setId((Integer)aux[2]);
+			texto.setTexto((String)aux[3]);
+			gabarito.setIdQuestao((Long)aux[4]);
+			gabarito.setIdAlternativa((Long)aux[5]);
+			questao.setTipoQuestao((Long)aux[6]);
+			
+			questao.setTextoDescritivo(texto);
+			lista.add(questao);  
+		}
+		return lista;
+	}
+	
+	@Deprecated
+	public List<Questao> findByEntityQueryAntiga(Questao entity)throws PersistenceException {
 		Query query = em.createQuery("" +
 			"select " +
 				"distinct questao.id, questao.questao, " +
@@ -144,7 +199,8 @@ public class QuestaoDaoImp extends GenericDAOJPAImpl<Questao, Long> implements Q
 		return lista;
 	}
 
-	private List<Questao> configuraResultadoPesquisa(List<Object[]> objects) {
+	@Deprecated
+	private List<Questao> configuraResultadoPesquisaAntigo(List<Object[]> objects) {
 		List<Questao> lista = new ArrayList<Questao>();
 		Questao questao = null;
 		TextoDescritivo texto = null;

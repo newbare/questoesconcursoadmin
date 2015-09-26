@@ -223,7 +223,7 @@ public class QuestaoGeneric extends GenericMB<Questao>{
 	 * @return
 	 */
 	protected String limparQuebraDeLinha(String texto){
-		return texto.replaceAll("\r|\n\r|\n", "");
+		return texto.replaceAll("\r|\n\r|\n", " ").replaceAll("  ", " ");
 	}
 	
 	/**

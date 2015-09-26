@@ -214,10 +214,10 @@
 										<f:facet name="header">
 											#{defaultMSG.LBL_QUESTOES}
 										</f:facet>
-										<p:column sortBy="numero" headerText="#{defaultMSG.LBL_NUMERO}" width="9%">
+										<p:column sortBy="numero" headerText="#{defaultMSG.LBL_NUMERO}" width="7%">
 											<h:outputText value="#{e.numero}" />
 										</p:column>
-										<p:column sortBy="questao" headerText="#{defaultMSG.LBL_QUESTAO}" width="57%">
+										<p:column sortBy="questao" headerText="#{defaultMSG.LBL_QUESTAO}" width="50%">
 											<h:outputText value="#{e.questao}" />
 										</p:column>
 										<p:column sortBy="categoria.disciplina.nome" headerText="#{defaultMSG.LBL_DISCIPLINA}" width="17%">
@@ -225,6 +225,9 @@
 										</p:column>
 										<p:column sortBy="categoria.nome" headerText="#{defaultMSG.LBL_MATERIA}" width="17%">
 											<h:outputText value="#{e.categoria}" />
+										</p:column>
+										<p:column sortBy="categoria.nome" headerText="#{defaultMSG.LBL_GABARITO}" width="9%">
+											<h:outputText value="#{e.alternativaGabarito.id}" />
 										</p:column>
 										<p:column headerText="#{defaultMSG.LBL_EXCLUIR}" style="text-align: center;">
 											<p:commandButton id="deletetButton" update=":formManterQuestao:tabelaQuestoes, :formGrowl:growl" action="#{questaoMB.excluirQuestaoDaLista}" icon="ui-icon-close" title="Excluir">  
@@ -238,8 +241,15 @@
 						<tr>
 							<td>
 								<h:panelGroup id="botaoSalvarAlterar">
-									<p:commandButton action="#{questaoMB.salvarOuAlterar}" value="#{defaultMSG.BTN_SALVAR}" rendered="#{questaoMB.renderizaBotaoSalvar}" update=":formGrowl:growl, :formManterQuestao" />
+									<p:commandButton actionListener="#{questaoMB.salvarOuAlterar}" value="#{defaultMSG.BTN_SALVAR}" rendered="#{questaoMB.renderizaBotaoSalvar}" update=":formGrowl:growl, :formManterQuestao">
+										<p:confirm header="Confirmação" message="Deseja salvar os dados da lista?" icon="ui-icon-alert" />
+									</p:commandButton>
 								</h:panelGroup>
+								
+								<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+							    </p:confirmDialog>
 							</td>
 						</tr>
 					</table>
