@@ -3,7 +3,7 @@
     <persistence-unit name="CrudPU" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
        <jta-data-source>java:jboss/datasources/QuestoesConcursoDS</jta-data-source>
-       <!--  <jta-data-source>java:/QuestoesConcursoDS</jta-data-source>-->
+    <!-- <jta-data-source>java:/QuestoesConcursoDS</jta-data-source> -->
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true" />
